@@ -1,0 +1,14 @@
+l = list(input().split())
+startDigit = l[0]
+startBase = int(l[1])
+endBase = int(l[2])
+upper = False
+digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+if startBase > len(digits): print(None)
+if endBase > len(digits): print(None)
+endDigit = ''
+result = int(str(startDigit), startBase)
+while result > 0:
+    endDigit = digits[result % endBase] + endDigit
+    result //= endBase
+print(endDigit.upper() if upper else endDigit)
